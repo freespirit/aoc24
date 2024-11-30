@@ -1,0 +1,12 @@
+[project]
+authors = ["stano <>"]
+channels = ["conda-forge", "https://conda.modular.com/max"]
+description = "Advent of Code 2024"
+name = "aoc24"
+platforms = ["osx-arm64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+max = ">=24.5.0,<25"
