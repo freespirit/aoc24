@@ -1,4 +1,4 @@
-from .common import AoCDaySolver
+from aoc.common import AoCDaySolver
 
 
 struct Day1Solver(AoCDaySolver):

@@ -1,5 +1,6 @@
-from aoc.common import AoCDaySolver
-from aoc.day_1 import Day1Solver
+from .common import AoCDaySolver
+from .day_01 import Day1Solver
+from .day_02 import Day2Solver
 
 
 fn solve(day: Int, input_file: String) raises -> (String, String):
@@ -8,6 +9,8 @@ fn solve(day: Int, input_file: String) raises -> (String, String):
 
     if day == 1:
         return _solve(Day1Solver(), content)
+    elif day == 2:
+        return _solve(Day2Solver(), content)
     else:
         var msg = "Module not implemented yet: Day " + str(day)
         raise Error(msg)
