@@ -10,14 +10,7 @@ struct Day2Solver(AoCDaySolver):
         pass
 
     fn solve_part_1(self, input_content: String) raises -> String:
-        var reports = List[Report]()
-
-        for line in input_content.splitlines():
-            var levels = List[Int]()
-            for level in line[].split():
-                levels.append(atol(level[]))
-
-            reports.append(Report(levels))
+        var reports = _build_reports(input_content)
 
         var total_safe = 0
         for report in reports:
@@ -27,7 +20,29 @@ struct Day2Solver(AoCDaySolver):
         return str(total_safe)
 
     fn solve_part_2(self, input_content: String) raises -> String:
-        return "TODO"
+        var reports = _build_reports(input_content)
+
+        var total_safe = 0
+        for report in reports:
+            if _is_safe(report[]):
+                total_safe += 1
+            elif _try_dampen(report[]):
+                total_safe += 1
+
+        return str(total_safe)
+
+
+fn _build_reports(input_content: String) raises -> List[Report]:
+    var reports = List[Report]()
+
+    for line in input_content.splitlines():
+        var levels = List[Int]()
+        for level in line[].split():
+            levels.append(atol(level[]))
+
+        reports.append(Report(levels))
+
+    return reports^
 
 
 fn _is_safe(report: Report) -> Bool:
@@ -51,3 +66,14 @@ fn _is_safe(report: Report) -> Bool:
             return False
 
     return True
+
+
+fn _try_dampen(report: Report) -> Bool:
+    for i in range(len(report.levels)):
+        var new_levels = report.levels
+        var _unused = new_levels.pop(i)
+        var dampened_report = Report(new_levels)
+        if _is_safe(dampened_report):
+            return True
+
+    return False
