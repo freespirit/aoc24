@@ -32,10 +32,9 @@ struct Day1Solver(AoCDaySolver):
             left.append(atol(parts[0]))
             right.append(atol(parts[1]))
 
-
         var sim_score = 0
         for i in range(0, len(left)):
             var count = right.count(left[i])
-            sim_score += (left[i] * count)
+            sim_score += left[i] * count
 
         return str(sim_score)

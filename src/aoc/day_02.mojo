@@ -1,5 +1,6 @@
 from aoc.common import AoCDaySolver
 
+
 @value
 struct Report(CollectionElement):
     var levels: List[Int]
@@ -62,7 +63,7 @@ fn _is_safe(report: Report) -> Bool:
 
     for i in range(0, len(report.levels) - 1):
         var diff = abs(report.levels[i + 1] - report.levels[i])
-        if  diff < 1 or diff > 3:
+        if diff < 1 or diff > 3:
             return False
 
     return True
