@@ -31,13 +31,13 @@ struct Day3Solver(AoCDaySolver):
         var mem = input_content
 
         for i in range(len(mem)):
-            if mem[i] == 'd':
-                if mem[i:i+5] == "don't":
+            if mem[i] == "d":
+                if mem[i : i + 5] == "don't":
                     enabled = False
-                elif mem[i:i+2] == "do":
+                elif mem[i : i + 2] == "do":
                     enabled = True
 
-            if mem[i] == 'm' and mem[i:i+4] == "mul(" and enabled:
+            if mem[i] == "m" and mem[i : i + 4] == "mul(" and enabled:
                 var open_pos = i + 3
                 var comma_pos = input_content.find(",", open_pos)
                 var close_pos = input_content.find(")", open_pos)
@@ -45,6 +45,5 @@ struct Day3Solver(AoCDaySolver):
                 var right = mem[comma_pos + 1 : close_pos]
                 if left.isdigit() and right.isdigit():
                     result += atol(left) * atol(right)
-
 
         return str(result)
