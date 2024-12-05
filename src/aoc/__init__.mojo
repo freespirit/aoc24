@@ -2,6 +2,7 @@ from .common import AoCDaySolver
 from .day_01 import Day1Solver
 from .day_02 import Day2Solver
 from .day_03 import Day3Solver
+from .day_04 import Day4Solver
 
 
 fn solve(day: Int, input_file: String) raises -> (String, String):
@@ -14,6 +15,8 @@ fn solve(day: Int, input_file: String) raises -> (String, String):
         return _solve(Day2Solver(), content)
     elif day == 3:
         return _solve(Day3Solver(), content)
+    elif day == 4:
+        return _solve(Day4Solver(), content)
     else:
         var msg = "Module not implemented yet: Day " + str(day)
         raise Error(msg)
