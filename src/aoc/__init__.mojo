@@ -4,6 +4,7 @@ from .day_02 import Day2Solver
 from .day_03 import Day3Solver
 from .day_04 import Day4Solver
 from .day_05 import Day5Solver
+from .day_10 import Day10Solver
 
 
 fn solve(day: Int, input_file: String) raises -> (String, String):
@@ -20,6 +21,8 @@ fn solve(day: Int, input_file: String) raises -> (String, String):
         return _solve(Day4Solver(), content)
     elif day == 5:
         return _solve(Day5Solver(), content)
+    elif day == 10:
+        return _solve(Day10Solver(), content)
     else:
         var msg = "Module not implemented yet: Day " + str(day)
         raise Error(msg)
