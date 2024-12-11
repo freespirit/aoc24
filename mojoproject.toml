@@ -7,7 +7,16 @@ platforms = ["osx-arm64"]
 version = "0.1.0"
 
 [tasks]
-day_1 = "mojo run src/main.mojo 1 input/day01.txt"
+day_11 = "mojo run src/main.mojo 11 input/day11.txt"
+
+build_for_tracing = "mojo build -g src/main.mojo"
+
+trace = "sudo dtrace -c './main 11 input/day11.txt' -o out.stacks -n 'profile-997 /execname == \"main\"/ { @[ustack(100)] = count(); }'"
+
+# E.g. have the cloned brendangregg/FlameGraph repo on your PATH
+flamegraph = "stackcollapse.pl out.stacks | flamegraph.pl > flamegraph.svg"
+
+profile = "magic run build_for_tracing; magic run trace; magic run flamegraph"
 
 [dependencies]
 max = ">=24.5.0,<25"
