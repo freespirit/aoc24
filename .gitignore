@@ -6,3 +6,10 @@
 .magic
 
 input/
+
+main
+main.dSYM/
+out.stacks
+flamegraph.svg
+
+log.md
