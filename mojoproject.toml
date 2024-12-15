@@ -7,7 +7,7 @@ platforms = ["osx-arm64"]
 version = "0.1.0"
 
 [tasks]
-day_11 = "mojo run src/main.mojo 11 input/day11.txt"
+day_15 = "mojo run src/main.mojo 15 input/day15.txt"
 
 build_for_tracing = "mojo build -g src/main.mojo"
 
